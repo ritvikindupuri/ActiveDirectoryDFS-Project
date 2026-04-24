@@ -26,7 +26,7 @@ The infrastructure connects domain controllers, specialized resource servers, an
 
 ---
 
-## Pillar 1: Identity Governance & Access Control
+## Part 1: Identity Governance & Access Control
 
 Identity management is centralized within Active Directory, utilizing a clean Organizational Unit (OU) structure to manage domain users and machines. Authentication is handled via Kerberos, with directory operations supported through LDAP.
 
@@ -45,7 +45,7 @@ Instead of assigning direct, broad privileges, access is governed through member
 
 ---
 
-## Pillar 2: High-Availability File Services
+## Part 2: High-Availability File Services
 
 To ensure data availability and seamless user access, the environment utilizes Distributed File System (DFS) technologies.
 
@@ -66,7 +66,7 @@ To ensure data availability and seamless user access, the environment utilizes D
 
 ---
 
-## Pillar 3: Remote Administration & Patch Management
+## Part 3: Remote Administration & Patch Management
 
 The infrastructure is designed for headless management, significantly reducing the need for direct local logins to servers.
 
@@ -88,7 +88,7 @@ Patch management is centralized through Windows Server Update Services (WSUS). U
 
 ---
 
-## Pillar 4: Resource Governance (Print Services)
+## Part 4: Resource Governance (Print Services)
 
 Shared resources are centrally managed to control job execution and security. The print server configuration includes queue prioritization to manage high-volume traffic and permission separation between standard users and administrative operators.
 
