@@ -21,7 +21,7 @@ The infrastructure connects domain controllers, specialized resource servers, an
 <p align="center">
   <img src=".assets/System%20Architecture.png" alt="Enterprise System Architecture" width="850"/>
 </p>
-<p align="center"><em>Figure 1: High-level architectural diagram showcasing domain inter-connectivity and service distribution.</em></p>
+<p align="center"><em>**Figure 1**: High-level architectural diagram showcasing domain inter-connectivity and service distribution.</em></p>
 
 ---
 
@@ -35,12 +35,12 @@ Instead of assigning direct, broad privileges, access is governed through member
 <p align="center">
   <img src=".assets/Identity.png" alt="Active Directory OU Structure" width="800"/>
 </p>
-<p align="center"><em>Figure 2: Active Directory Organizational Unit (OU) design for centralized identity governance.</em></p>
+<p align="center"><em>**Figure 2**: Active Directory Organizational Unit (OU) design for centralized identity governance.</em></p>
 
 <p align="center">
   <img src=".assets/Admin%20security%20for%20Printer.png" alt="Role Based Access Control Proof" width="800"/>
 </p>
-<p align="center"><em>Figure 3: Security descriptors proving role-based delegation for resource management.</em></p>
+<p align="center"><em>**Figure 3**: Security descriptors proving role-based delegation for resource management.</em></p>
 
 ---
 
@@ -54,12 +54,12 @@ To ensure data availability and seamless user access, the environment utilizes D
 <p align="center">
   <img src=".assets/DFS%20Namespace%20Targets.png" alt="DFS Namespace Configuration" width="800"/>
 </p>
-<p align="center"><em>Figure 4: DFS Namespace mapping to multiple redundant folder targets.</em></p>
+<p align="center"><em>**Figure 4**: DFS Namespace mapping to multiple redundant folder targets.</em></p>
 
 <p align="center">
   <img src=".assets/DFS%20Replication%20proof.png" alt="DFS Replication Status" width="800"/>
 </p>
-<p align="center"><em>Figure 5: Operational proof of data synchronization across the DFS replication group.</em></p>
+<p align="center"><em>**Figure 5**: Operational proof of data synchronization across the DFS replication group.</em></p>
 
 ---
 
@@ -76,12 +76,12 @@ Patch management is centralized through **Windows Server Update Services (WSUS)*
 <p align="center">
   <img src=".assets/Remote%20Admin%20-%20Service%20Spooler.png" alt="PowerShell Remote Administration" width="800"/>
 </p>
-<p align="center"><em>Figure 6: Managing critical OS services remotely via authenticated PowerShell sessions.</em></p>
+<p align="center"><em>**Figure 6**: Managing critical OS services remotely via authenticated PowerShell sessions.</em></p>
 
 <p align="center">
   <img src=".assets/WSUS%20Patch%20-1.png" alt="WSUS Update Dashboard" width="800"/>
 </p>
-<p align="center"><em>Figure 7: WSUS initialization and synchronization status for centralized patch governance.</em></p>
+<p align="center"><em>**Figure 7**: WSUS initialization and synchronization status for centralized patch governance.</em></p>
 
 ---
 
@@ -92,7 +92,7 @@ Shared resources are centrally managed to control job execution and security. Th
 <p align="center">
   <img src=".assets/Printer%20infrastructure.png" alt="Print Server Infrastructure" width="800"/>
 </p>
-<p align="center"><em>Figure 8: Centralized management interface displaying the deployed enterprise printer fleet.</em></p>
+<p align="center"><em>**Figure 8**: Centralized management interface displaying the deployed enterprise printer fleet.</em></p>
 
 ---
 
@@ -112,5 +112,7 @@ The successful implementation of this environment proves the efficacy of central
 3.  **Scalable Security Governance**: The transition from individual machine management to centralized Group Policy and WSUS allows security baselines to be enforced across thousands of endpoints instantaneously, ensuring a robust and predictable defense posture.
 
 This project serves as a technical foundation for managing complex domain infrastructures and reflects the high-standard operational requirements found in enterprise-grade security environments.
+
+**Project by Ritvik Indupuri**
 
 
