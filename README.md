@@ -21,7 +21,7 @@ The infrastructure connects domain controllers, specialized resource servers, an
 <p align="center">
   <img src=".assets/System%20Architecture.png" alt="Enterprise System Architecture" width="850"/>
 </p>
-<p align="center">**Figure 1**: High-level architectural diagram showcasing domain inter-connectivity and service distribution.</p>
+<p align="center"><strong>Figure 1</strong>: High-level architectural diagram showcasing domain inter-connectivity and service distribution.</p>
 
 ---
 
@@ -35,12 +35,12 @@ Instead of assigning direct, broad privileges, access is governed through member
 <p align="center">
   <img src=".assets/Identity.png" alt="Active Directory OU Structure" width="800"/>
 </p>
-<p align="center">**Figure 2**: Active Directory Organizational Unit (OU) design for centralized identity governance.</p>
+<p align="center"><strong>Figure 2</strong>: Active Directory Organizational Unit (OU) design for centralized identity governance.</p>
 
 <p align="center">
   <img src=".assets/Admin%20security%20for%20Printer.png" alt="Role Based Access Control Proof" width="800"/>
 </p>
-<p align="center">**Figure 3**: Security descriptors proving role-based delegation for resource management.</p>
+<p align="center"><strong>Figure 3</strong>: Security descriptors proving role-based delegation for resource management.</p>
 
 ---
 
@@ -54,12 +54,17 @@ To ensure data availability and seamless user access, the environment utilizes D
 <p align="center">
   <img src=".assets/DFS%20Namespace%20Targets.png" alt="DFS Namespace Configuration" width="800"/>
 </p>
-<p align="center">**Figure 4**: DFS Namespace mapping to multiple redundant folder targets.</p>
+<p align="center"><strong>Figure 4</strong>: DFS Namespace mapping to multiple redundant folder targets.</p>
 
 <p align="center">
   <img src=".assets/DFS%20Replication%20proof.png" alt="DFS Replication Status" width="800"/>
 </p>
-<p align="center">**Figure 5**: Operational proof of data synchronization across the DFS replication group.</p>
+<p align="center"><strong>Figure 5</strong>: Operational proof of data synchronization across the DFS replication group.</p>
+
+<p align="center">
+  <img src=".assets/DFS%20Replication%20Logs.png" alt="DFS Replication Event Logs" width="800"/>
+</p>
+<p align="center"><strong>Figure 6</strong>: DFS Replication Event Viewer logs confirming successful contact and configuration access.</p>
 
 ---
 
@@ -70,18 +75,23 @@ The infrastructure is designed for headless management, significantly reducing t
 ### PowerShell Remoting
 Administrative operations are executed remotely from a dedicated workstation using PowerShell Remoting over **WinRM**. Critical services, such as the Print Spooler, are managed without direct server logins, reducing the potential attack surface of the local console.
 
+<p align="center">
+  <img src=".assets/Remote%20Admin%20(Session%20start).png" alt="PowerShell Remote Session Initialization" width="800"/>
+</p>
+<p align="center"><strong>Figure 7</strong>: Initializing a secure remote PowerShell session (Enter-PSSession) to a domain server.</p>
+
 ### Centralized Update Deployment (WSUS)
 Patch management is centralized through **Windows Server Update Services (WSUS)**. Updates are synchronized with Microsoft Update and distributed to domain-joined machines on controlled schedules defined by Group Policy, ensuring a consistent security posture.
 
 <p align="center">
   <img src=".assets/Remote%20Admin%20-%20Service%20Spooler.png" alt="PowerShell Remote Administration" width="800"/>
 </p>
-<p align="center">**Figure 6**: Managing critical OS services remotely via authenticated PowerShell sessions.</p>
+<p align="center"><strong>Figure 8</strong>: Managing critical OS services remotely via authenticated PowerShell sessions.</p>
 
 <p align="center">
   <img src=".assets/WSUS%20Patch%20-1.png" alt="WSUS Update Dashboard" width="800"/>
 </p>
-<p align="center">**Figure 7**: WSUS initialization and synchronization status for centralized patch governance.</p>
+<p align="center"><strong>Figure 9</strong>: WSUS initialization and synchronization status for centralized patch governance.</p>
 
 ---
 
@@ -92,7 +102,12 @@ Shared resources are centrally managed to control job execution and security. Th
 <p align="center">
   <img src=".assets/Printer%20infrastructure.png" alt="Print Server Infrastructure" width="800"/>
 </p>
-<p align="center">**Figure 8**: Centralized management interface displaying the deployed enterprise printer fleet.</p>
+<p align="center"><strong>Figure 10</strong>: Centralized management interface displaying the deployed enterprise printer fleet.</p>
+
+<p align="center">
+  <img src=".assets/Print%20Server%20properties.png" alt="Print Server Job Prioritization" width="500"/>
+</p>
+<p align="center"><strong>Figure 11</strong>: Print queue properties demonstrating advanced job prioritization configuration.</p>
 
 ---
 
