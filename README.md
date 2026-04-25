@@ -1,17 +1,16 @@
-# Centralized Windows Enterprise Infrastructure 
+# Centralized Windows Enterprise Infrastructure Simulation
 
 ## Executive Summary
 This project demonstrates the design and implementation of a centralized Windows enterprise infrastructure, simulating real-world domain operations. The environment is architected around an Active Directory (AD) core to manage identity, resource governance, remote administration, and high-availability file services.
 
-The system emphasizes a security-first approach through role-based access control (RBAC), centralized patch management via WSUS, and headless administrative control through PowerShell Remoting, reflecting a mature, production-ready enterprise model.
+The system emphasizes a security-first approach through **Role-Based Access Control (RBAC)**, centralized patch management via **WSUS**, and headless administrative control through **PowerShell Remoting**, reflecting a mature, production-ready enterprise model.
 
 ## Tech Stack & Frameworks
-* **Identity & Directory Services:** Active Directory (AD DS), DNS, LDAP, Kerberos
-* **Remote Administration:** PowerShell Remoting (WinRM)
-* **File Services:** Distributed File System (DFS-N & DFS-R)
-* **Patch Management:** Windows Server Update Services (WSUS)
-* **Operating Systems:** Windows Server 2022, Windows 10/11
-* **Governance:** Group Policy Objects (GPO), Role-Based Access Control (RBAC)
+* **Identity & Directory Services**: Active Directory (AD DS), DNS, LDAP, Kerberos.
+* **Remote Administration**: PowerShell Remoting (WinRM).
+* **File Services**: Distributed File System (DFS-N & DFS-R).
+* **Patch Management**: Windows Server Update Services (WSUS).
+* **Governance**: Group Policy Objects (GPO), Role-Based Access Control (RBAC).
 
 ---
 
@@ -28,7 +27,7 @@ The infrastructure connects domain controllers, specialized resource servers, an
 
 ## Part 1: Identity Governance & Access Control
 
-Identity management is centralized within Active Directory, utilizing a clean Organizational Unit (OU) structure to manage domain users and machines. Authentication is handled via Kerberos, with directory operations supported through LDAP.
+Identity management is centralized within Active Directory, utilizing a clean Organizational Unit (OU) structure to manage domain users and machines. Authentication is handled via **Kerberos**, with directory operations supported through **LDAP**.
 
 ### Role-Based Delegation (RBAC)
 Instead of assigning direct, broad privileges, access is governed through membership in scoped security groups. For example, a dedicated **Printer Admin** account is restricted to managing print services through membership in the **Print Operators** group, successfully demonstrating the principle of least privilege (PoLP).
@@ -49,20 +48,18 @@ Instead of assigning direct, broad privileges, access is governed through member
 
 To ensure data availability and seamless user access, the environment utilizes Distributed File System (DFS) technologies.
 
-* **DFS Namespace (DFS-N):** Provides a unified logical path for shared folders, allowing users to access data through the namespace rather than individual server IPs or hostnames.
-* **DFS Replication (DFS-R):** Maintains data consistency across multiple backend folder targets, ensuring that if one file server fails, access continues uninterrupted.
+* **DFS Namespace (DFS-N)**: Provides a unified logical path for shared folders, allowing users to access data through the namespace rather than individual server IPs or hostnames.
+* **DFS Replication (DFS-R)**: Maintains data consistency across multiple backend folder targets, ensuring that if one file server fails, access continues uninterrupted.
 
 <p align="center">
   <img src=".assets/DFS%20Namespace%20Targets.png" alt="DFS Namespace Configuration" width="800"/>
-  <br>
-  <b>Figure 4: DFS Namespace mapping to multiple redundant folder targets.</b>
 </p>
+<p align="center"><em>Figure 4: DFS Namespace mapping to multiple redundant folder targets.</em></p>
 
 <p align="center">
   <img src=".assets/DFS%20Replication%20proof.png" alt="DFS Replication Status" width="800"/>
-  <br>
-  <b>Figure 5: Operational proof of data synchronization across the DFS replication group.</b>
 </p>
+<p align="center"><em>Figure 5: Operational proof of data synchronization across the DFS replication group.</em></p>
 
 ---
 
@@ -71,10 +68,10 @@ To ensure data availability and seamless user access, the environment utilizes D
 The infrastructure is designed for headless management, significantly reducing the need for direct local logins to servers.
 
 ### PowerShell Remoting
-Administrative operations are executed remotely from a dedicated workstation using PowerShell Remoting over WinRM. This was validated by remotely managing the **Print Spooler** service on a target server without an active RDP session.
+Administrative operations are executed remotely from a dedicated workstation using PowerShell Remoting over **WinRM**. Critical services, such as the Print Spooler, are managed without direct server logins, reducing the potential attack surface of the local console.
 
 ### Centralized Update Deployment (WSUS)
-Patch management is centralized through Windows Server Update Services (WSUS). Updates are synchronized with Microsoft Update and distributed to domain-joined machines on controlled schedules defined by Group Policy.
+Patch management is centralized through **Windows Server Update Services (WSUS)**. Updates are synchronized with Microsoft Update and distributed to domain-joined machines on controlled schedules defined by Group Policy, ensuring a consistent security posture.
 
 <p align="center">
   <img src=".assets/Remote%20Admin%20-%20Service%20Spooler.png" alt="PowerShell Remote Administration" width="800"/>
@@ -99,10 +96,21 @@ Shared resources are centrally managed to control job execution and security. Th
 
 ---
 
-## Strategic Impact & Engineering Outcomes
+## Full Project Documentation
+For a comprehensive technical breakdown—including GPO configuration tables, step-by-step implementation logs, and detailed system validation procedures—please refer to the complete project report:
 
-* **Scalability:** Engineered a framework that allows for the seamless addition of users and resources with zero disruption to the existing directory structure.
-* **Security Resilience:** Validated that the combination of RBAC and centralized patch management effectively mitigates internal unauthorized access and external vulnerability risks.
-* **Operational Continuity:** Proved that DFS-based file services provide transparent failover, maintaining service uptime during backend system maintenance or failure.
+**[Scalable Enterprise Infrastructure Documentation.pdf](Scalable%20Enterprise%20Infrastructure%20Documentation.pdf)**
 
-**Project by Ritvik Indupuri**
+---
+
+## Strategic Impact & Conclusion
+
+The successful implementation of this environment proves the efficacy of centralized management in a modern enterprise setting. By integrating identity management, file availability, and patch governance, the resulting system achieves three critical cybersecurity objectives:
+
+1.  **Attack Surface Reduction**: By enforcing headless administration through PowerShell Remoting and limiting local login privileges, the lateral movement potential for an adversary is significantly constrained.
+2.  **Operational Resilience**: The use of DFS Namespaces and Replication ensures that critical business data remains available even during hardware failure or scheduled maintenance, supporting continuous business operations.
+3.  **Scalable Security Governance**: The transition from individual machine management to centralized Group Policy and WSUS allows security baselines to be enforced across thousands of endpoints instantaneously, ensuring a robust and predictable defense posture.
+
+This project serves as a technical foundation for managing complex domain infrastructures and reflects the high-standard operational requirements found in enterprise-grade security environments.
+
+
