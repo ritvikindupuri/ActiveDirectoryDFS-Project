@@ -1,4 +1,5 @@
 # Centralized Windows Enterprise Infrastructure 
+# By: Ritvik Indupuri
 
 ## Executive Summary
 This project demonstrates the design and implementation of a centralized Windows enterprise infrastructure, simulating real-world domain operations. The environment is architected around an Active Directory (AD) core to manage identity, resource governance, remote administration, and high-availability file services.
